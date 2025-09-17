@@ -7,7 +7,8 @@ DEVICE_PATH := device/samsung/a30
 TARGET_OTA_ASSERT_DEVICE := a30,a30dd
 
 # Kernel
-TARGET_KERNEL_CONFIG := exynos7885-a30_defconfig
+TARGET_KERNEL_CONFIG := exynos7885_defconfig
+TARGET_KERNEL_CONFIG += a30.config
 
 # Display
 TARGET_SCREEN_DENSITY := 420
