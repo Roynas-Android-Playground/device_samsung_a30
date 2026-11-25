@@ -38,12 +38,17 @@ lib_fixups: lib_fixups_user_type = {
 }
 
 blob_fixups: blob_fixups_user_type = {
+    'vendor/lib/hw/camera.exynos7904.so': blob_fixup()
+        .replace_needed('libion.so', 'libshim_ion.so'),
     'vendor/lib/libexynoscamera3.so': blob_fixup()
         .add_needed('libshim_camera.so')
         .binary_regex_replace(
             re.escape(bytes.fromhex('5f5a4e37616e64726f69643546656e6365')),
             bytes.fromhex('5f5a4e376578796e6f73353546656e6365'),
-        ),
+        )
+        .replace_needed('libion.so', 'libshim_ion.so'),
+    'vendor/lib/libremosaic_daemon.so': blob_fixup()
+        .replace_needed('libion.so', 'libshim_ion.so'),
     'vendor/lib/hw/audio.primary.exynos7904.so': blob_fixup()
         .replace_needed('libaudioroute.so', 'libaudioroute.exynos7885.so')
         .replace_needed('libtinyalsa.so', 'libtinyalsa.exynos7885.so'),

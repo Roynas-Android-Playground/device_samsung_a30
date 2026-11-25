@@ -18,6 +18,10 @@ TARGET_SOC := exynos7904
 TARGET_SCREEN_HEIGHT := 2280
 TARGET_SCREEN_WIDTH := 1080
 
+# Camera
+PRODUCT_PACKAGES += \
+    libshim_ion:32
+
 # Fingerprint
 PRODUCT_PACKAGES += \
     android.hardware.biometrics.fingerprint-service.samsung
